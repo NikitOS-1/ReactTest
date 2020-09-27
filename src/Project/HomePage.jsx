@@ -22,3 +22,5 @@ let HomePage = (props) => {
     );
 };
 export default HomePage;
+// work version 1.0 
+//this form is adding posts to page, and create array from posts
