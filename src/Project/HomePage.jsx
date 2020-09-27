@@ -5,13 +5,14 @@ let HomePage = (props) => {
     let text = React.createRef();
     let addMessage = () => {
         props.SendMessage();
+        text.current.value = '';
     }
     let changeText = () => {
         props.updateMessage(text.current.value)
     }
     let postElement = props.messages.messages.map(
         m => <AddPost messages={m.text} />
-    );//array State Messages
+    );
     return (
         <div className="HomePage">
             <textarea onChange={changeText} ref={text} />
@@ -20,5 +21,4 @@ let HomePage = (props) => {
         </div>
     );
 };
-//решить задачу с занулением value textarea  //значения value должны браться с state
 export default HomePage;
