@@ -8,14 +8,13 @@ let state = {
 export let SendMessage = () => {
     let text = {text:state.textUpdate}
     state.messages.unshift(text);
-    if(state.textUpdate == 'clear!'){
-        state.messages = [];
-    }
+    state.textUpdate = '';
     rerenderPage();
 };
 
 export let updateMessage = (text) => {  
     state.textUpdate = text;
+    rerenderPage();
 };
 
 export default state;

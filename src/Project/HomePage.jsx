@@ -5,7 +5,6 @@ let HomePage = (props) => {
     let text = React.createRef();
     let addMessage = () => {
         props.SendMessage();
-        text.current.value = '';
     }
     let changeText = () => {
         props.updateMessage(text.current.value)
@@ -15,7 +14,7 @@ let HomePage = (props) => {
     );
     return (
         <div className="HomePage">
-            <textarea onChange={changeText} ref={text} />
+            <textarea onChange={changeText} ref={text} value={props.messages.textUpdate}/>
             <button onClick={addMessage}>Send</button>
             {postElement}
         </div>
