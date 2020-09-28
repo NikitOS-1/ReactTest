@@ -21,5 +21,6 @@ let HomePage = (props) => {
     );
 };
 export default HomePage;
-// work version 1.0 
-//this form is adding posts to page, and create array from posts
+//  work version 2.0 
+//  this form is adding posts to page, and create array from posts
+//  данные вносятся сразу в State через props и возвращаются в UI 
