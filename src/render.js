@@ -2,17 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
-import state from './Redux/State';
-import { updateMessage } from './Redux/State';
-import {SendMessage} from './Redux/State';
+import store from './Redux/State';
 
 export let rerenderPage = () => {
   ReactDOM.render(
-    <App messages={state}
-      updateMessage={updateMessage}
-      SendMessage={SendMessage} />,
+    <App state={store.getState()} dispatch={store.dispatch.bind(store)} />,
     document.getElementById('root')
   );
 }
-serviceWorker.register();

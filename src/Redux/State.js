@@ -1,20 +1,23 @@
-import {rerenderPage} from '../render';
+import { rerenderPage } from '../render';
+let store = {
+    _state: {
+        messages: [],
+        textUpdate: ''
+    },
+    getState() {
+        return this._state
+    },
+    dispatch(action) {
+        if (action.type === 'SEND-MESSAGE') {
+            let text = { text: this._state.textUpdate }
+            this._state.messages.unshift(text);
+            this._state.textUpdate = '';
+            rerenderPage();
+        } else if (action.type === 'UPDATE-MESSAGE') {
+            this._state.textUpdate = action.text;
+            rerenderPage();
+        }
+    }
+}
 
-let state = {
-    messages: [],
-    textUpdate:''
-};
-
-export let SendMessage = () => {
-    let text = {text:state.textUpdate}
-    state.messages.unshift(text);
-    state.textUpdate = '';
-    rerenderPage();
-};
-
-export let updateMessage = (text) => {  
-    state.textUpdate = text;
-    rerenderPage();
-};
-
-export default state;
+export default store;

@@ -4,9 +4,7 @@ import HomePage from './Project/HomePage';
 
 function App(props) {
   return (
-    <HomePage messages={props.messages} 
-                updateMessage={props.updateMessage} 
-                SendMessage={props.SendMessage}/>
+    <HomePage state={props.state} dispatch={props.dispatch} />
   );
 }
 
